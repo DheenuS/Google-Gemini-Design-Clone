@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini-Clone</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+
+    <link rel="icon" href="/src/Assets/gem.svg" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="overflow-y-scroll">
+    <aside id="side-bar" class="fixed h-full bg-[#1e1f20] z-50">
+        <!-- Hamburger -->
+        <div class="">
+            <div id="hamburger"
+                class="relative sm:active:bg-[#e8eaed44] transition-all w-[50px] h-[50px] rounded-full sm:hover:bg-[#2f3030] flex justify-center items-center mt-[10px] ml-[10px] cursor-pointer pt-3 pl-3"
+                data-resize-btn>
+                <img id="expand" src="/src/Assets/hamburger-light.svg" alt="hamburger-light"
+                    class="absolute top-3 left-3 w-[26px] h-[26px]" />
+                <span id="ham-tooltip"
+                    class="absolute bottom-[-30px] left-0 text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Expand
+                    menu</span>
+            </div>
+        </div>
+        <!-- Sidebar Middle contents and lists -->
+        <div class="" id="sidebar-lists">
+            <!-- Sidebar new chat button -->
+            <div id="new-chat-button"
+                class="ml-3 mt-11 mb-6 relative cursor-pointer bg-[#1a1a1c] flex items-center justify-start space-x-4 px-2.5 py-2.5 rounded-full">
+                <img src="/src/Assets/add-light.svg" alt="add-light" class="w-[22px] h-[22px]" />
+                <p id="new-chat" class="sidebar-text text-[14px] text-[#fff] text-nowrap hidden">New Chat</p>
+                <span id="chat-tooltip"
+                    class="absolute bottom-[-28px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">New
+                    chat</span>
+            </div>
+            <!-- Recent text -->
+            <p class="sidebar-text text-[#fff] text-[14px] text-start ml-6 mb-2 hidden">Recent</p>
+
+            <!-- Aside message content starts -->
+            <div class="ml-3 flex flex-col">
+                <ul>
+                    <a href="#">
+                        <li id="design" data-content-id="content1"
+                            class=" sb-design-li relative cursor-pointer hover:bg-[#303131] flex items-center justify-start space-x-4 px-3 py-2 rounded-full w-[300px]">
+                            <img src="/src/Assets/chat-light.svg" alt="chat-light"
+                                class="sidebar-text hidden w-[18px] h-[18px]" />
+                            <p class="sidebar-text hidden text-[14px] text-[#fafafa] text-nowrap">About Web Designing
+                            </p>
+                            <div id="design-pin"
+                                class="sidebar-text hidden absolute right-[3px] top-[2px] p-2 rounded-full hover:bg-[#37393b]">
+                                <img src="/src/Assets/pin-light.svg" alt="pin-light" class="w-[17px] h-[17px]" />
+                            </div>
+                            <div id="design-three-dot"
+                                class="hidden absolute right-[3px] top-[2.5px] p-[6px] rounded-full hover:bg-[#37393b]">
+                                <img src="/src/Assets/three-dot-light.svg" alt="three-dot-light"
+                                    class=" w-[20px] h-[20px]" />
+                            </div>
+                            <span id="sb-design-tooltip"
+                                class="absolute right-[-8.6rem] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">About
+                                Web Design</span>
+                        </li>
+                    </a>
+                    <a href="#">
+                        <li id="js" data-content-id="content2"
+                            class=" sb-js-li relative cursor-pointer hover:bg-[#303131] flex items-center justify-start space-x-4 px-3 py-2 rounded-full w-[300px]">
+                            <img src="/src/Assets/chat-light.svg" alt="chat-light"
+                                class="sidebar-text hidden w-[18px] h-[18px]" />
+                            <p class="sidebar-text hidden text-[14px] text-[#fafafa] text-nowrap">JavaScript explained
+                            </p>
+                            <div id="js-pin"
+                                class="sidebar-text hidden absolute right-[3px] top-[2px] p-2 rounded-full hover:bg-[#37393b]">
+                                <img src="/src/Assets/pin-light.svg" alt="pin-light" class="w-[17px] h-[17px]" />
+                            </div>
+                            <div id="js-three-dot"
+                                class="hidden absolute right-[3px] top-[2.5px] p-[6px] rounded-full hover:bg-[#37393b]">
+                                <img src="/src/Assets/three-dot-light.svg" alt="three-dot-light"
+                                    class=" w-[20px] h-[20px]" />
+                            </div>
+                            <span id="sb-js-tooltip"
+                                class="absolute right-[-9.4rem] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">JavaScript
+                                Explained</span>
+                        </li>
+                    </a>
+                    <a href="#">
+                        <li id="tailwind" data-content-id="content3"
+                            class=" sb-tailwind-li relative cursor-pointer hover:bg-[#303131] flex items-center justify-start space-x-4 px-3 py-2 rounded-full w-[300px]">
+                            <img src="/src/Assets/chat-light.svg" alt="chat-light"
+                                class="sidebar-text hidden w-[18px] h-[18px]" />
+                            <p class="sidebar-text hidden text-[14px] text-[#fafafa] text-nowrap">Tailwind CSS explained
+                            </p>
+                            <div id="tailwind-pin"
+                                class="sidebar-text hidden absolute right-[3px] top-[2px] p-2 rounded-full hover:bg-[#37393b]">
+                                <img src="/src/Assets/pin-light.svg" alt="pin-light" class="w-[17px] h-[17px]" />
+                            </div>
+                            <div id="tailwind-three-dot"
+                                class="hidden absolute right-[3px] top-[2.5px] p-[6px] rounded-full hover:bg-[#37393b]">
+                                <img src="/src/Assets/three-dot-light.svg" alt="three-dot-light"
+                                    class=" w-[20px] h-[20px]" />
+                            </div>
+                            <span id="sb-tailwind-tooltip"
+                                class="absolute right-[-10.2rem] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Tailwind
+                                CSS Explained</span>
+                        </li>
+                    </a>
+                    <a href="#">
+                        <li id="css" data-content-id="content4"
+                            class=" sb-css-li relative cursor-pointer hover:bg-[#303131] flex items-center justify-start space-x-4 px-3 py-2 rounded-full w-[300px]">
+                            <img src="/src/Assets/chat-light.svg" alt="chat-light"
+                                class="sidebar-text hidden w-[18px] h-[18px]" />
+                            <p class="sidebar-text hidden text-[14px] text-[#fafafa] text-nowrap">CSS explained</p>
+                            <div id="css-pin"
+                                class="sidebar-text hidden absolute right-[3px] top-[2px] p-2 rounded-full hover:bg-[#37393b]">
+                                <img src="/src/Assets/pin-light.svg" alt="pin-light" class="w-[17px] h-[17px]" />
+                            </div>
+                            <div id="css-three-dot"
+                                class="hidden absolute right-[3px] top-[2.5px] p-[6px] rounded-full hover:bg-[#37393b]">
+                                <img src="/src/Assets/three-dot-light.svg" alt="three-dot-light"
+                                    class=" w-[20px] h-[20px]" />
+                            </div>
+                            <span id="sb-css-tooltip"
+                                class="absolute right-[-6.9rem] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">CSS
+                                Explained</span>
+                        </li>
+                    </a>
+                    <a href="#">
+                        <li id="html" data-content-id="content5"
+                            class=" sb-html-li relative cursor-pointer hover:bg-[#303131] flex items-center justify-start space-x-4 px-3 py-2 rounded-full w-[300px]">
+                            <img src="/src/Assets/chat-light.svg" alt="chat-light"
+                                class="sidebar-text hidden w-[18px] h-[18px]" />
+                            <p class="sidebar-text hidden text-[14px] text-[#fafafa] text-nowrap">HTML explained</p>
+                            <div id="html-pin"
+                                class="sidebar-text hidden absolute right-[3px] top-[2px] p-2 rounded-full hover:bg-[#37393b]">
+                                <img src="/src/Assets/pin-light.svg" alt="pin-light" class="w-[17px] h-[17px]" />
+                            </div>
+                            <div id="html-three-dot"
+                                class="hidden absolute right-[3px] top-[2.5px] p-[6px] rounded-full hover:bg-[#37393b]">
+                                <img src="/src/Assets/three-dot-light.svg" alt="three-dot-light"
+                                    class=" w-[20px] h-[20px]" />
+                            </div>
+                            <span id="sb-html-tooltip"
+                                class="absolute right-[-7.3rem] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">HTML
+                                Explained</span>
+                        </li>
+                    </a>
+                </ul>
+
+            </div>
+            <!-- Aside message content ends -->
+        </div>
+        <!-- Sidebar Bottom lists-->
+        <div id="sidebar-bottom-content" class=" fixed left-0 bottom-8 mt-auto ml-3 flex flex-col ">
+            <a href="#">
+                <h1 id="help"
+                    class=" sb-help-li relative cursor-pointer hover:bg-[#303131] flex items-center justify-start space-x-4 p-2 rounded-full w-[300px]">
+                    <img src="/src/Assets/help-light.svg" alt="Help" class="w-[22px] h-[22px]" />
+                    <p class="sidebar-text hidden text-[14px] text-[#fff] text-nowrap">Help</p>
+                    <div class="sidebar-text hidden absolute right-4 top-4 bg-[#89d3ff] w-[8px] h-[8px] rounded-full">
+                    </div>
+                    <span id="sb-help-tooltip"
+                        class="absolute right-[-3rem] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Help</span>
+                </h1>
+            </a>
+            <a href="#">
+                <h1 id="activity"
+                    class="  sb-activity-li relative cursor-pointer hover:bg-[#303131] flex items-center justify-start space-x-4 p-2 rounded-full w-[300px]">
+                    <img src="/src/Assets/history-light.svg" alt="History" class="w-[22px] h-[22px]" />
+                    <p class="sidebar-text hidden text-[14px] text-[#fff] text-nowrap">Activity</p>
+                    <span id="sb-activity-tooltip"
+                        class="absolute right-[-4rem] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Activity</span>
+                </h1>
+            </a>
+            <a href="#">
+                <h1 id="settings"
+                    class=" sb-settings-li relative cursor-pointer hover:bg-[#303131] flex items-center justify-start space-x-4 p-2 rounded-full w-[300px]">
+                    <img src="/src/Assets/settings-light.svg" alt="Settings" class="w-[22px] h-[22px]" />
+                    <p class="sidebar-text hidden text-[14px] text-[#fff] text-nowrap">Settings</p>
+                    <span id="sb-settings-tooltip"
+                        class="absolute right-[-4.3rem] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Settings</span>
+                </h1>
+            </a>
+            <div class="flex ml-3.5 space-x-2 mt-4">
+                <div class="sidebar-text hidden text-nowrap text-[11px] font-medium flex items-start">
+                    <div class=" mt-1 w-[.5rem] h-[.5rem] rounded-full bg-[#8e918f]"></div>
+                    <div class="ml-3">
+                        <p class="text-[#E3E3E3]">Siruvangur, Tamil Nadu, India</p>
+                        <p class="text-[#9fbff3]">Based on your places (Home) Update location</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div id="navbar-content"
+        class=" sticky top-0 w-full bg-[#131414] flex items-center justify-between p-4 ml-0">
+        <div id="nav-title" class="flex items-center justify-center space-x-3 pt-0">
+            <div class="flex items-center justify-center cursor-pointer">
+                <h1 class="text-[19px] font-normal text-[#caccce]">Gemini</h1>
+                <img src="/src/Assets/arrow-down-dark-light.svg" alt="arrow-down-dark-light"
+                    class="rounded-full p-[.25rem] -mt-1 w-8 h-8" />
+            </div>
+        </div>
+        <div class="flex items-center justify-center space-x-3 z-50">
+            <div
+                class="flex items-center justify-center w-fit px-[.6rem] py-[.4rem] space-x-1 rounded-lg bg-[#383c3e] hover:bg-[#47494a] cursor-pointer">
+                <img src="/src/Assets/gem.svg" alt="Gemini_logo" class="w-[22px] h-[22px]" />
+                <p class="font-normal text-white text-[12px]">Try Gemini Advanced</p>
+            </div>
+            <div id="google-app-icon"
+                class="relative flex items-center justify-center hover:bg-[#222222] w-[40px] h-[40px] rounded-full cursor-pointer">
+                <img src="/src/Assets/apps-light.svg" alt="apps-light" />
+                <span id="google-app-tooltip"
+                    class=" absolute bottom-[-28px] left-[-28px] text-nowrap text-[11px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Google
+                    Apps</span>
+            </div>
+            <div id="profile-icon"
+                class=" relative flex items-center justify-center sm:hover:bg-[#222222] w-[40px] h-[40px] rounded-full cursor-pointer">
+                <img src="/src/Assets/profile.jpg" alt="profile" class="rounded-full p-[.25rem] ml-0" />
+                <span id="profile-tooltip"
+                    class="absolute bottom-[-64px] left-[-125px] text-wrap text-[12px] px-2 py-[4px] bg-[#3c4043] text-white font-normal rounded-md">Google
+                    Account
+                    <p class="text-[#b0c1bd]">DHEENU S</p>
+                    <p class="text-[#b0c1bd]">dheenempire@gmail.com</p>
+                </span>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <main id="main-content" class=" mt-4 w-fit py-[1rem] pl-[17.2rem] z-30">
+        <div id="content-parent" class="user-name ml-[0px]">
+            <div class=" text-[44px] font-normal leading-[1.2]">
+                <h1 class="text-gradient text-[56px] font-medium text-wrap">Hello, DHEENU</h1>
+                <h1 class="text-[#444746] text-[54px] font-medium text-wrap">How can I help you today?</h1>
+            </div>
+            <div class=" flex items-center justify-start mt-20 space-x-2">
+                <div
+                    class="flex flex-col items-center justify-between bg-[#1e1f20] hover:bg-[#333537] w-[200px] h-[200px] rounded-xl cursor-pointer">
+                    <p class="text-white text-[15px] m-3.5">Generate the design code for a landing page</p>
+                    <div
+                        class=" flex items-center justify-center self-end w-[40px] h-[40px] m-4 bg-[#131314] rounded-full">
+                        <img src="/src/Assets/code-light.svg" alt="code-light" />
+                    </div>
+                </div>
+                <div
+                    class="flex flex-col items-center justify-between bg-[#1e1f20] hover:bg-[#333537] w-[200px] h-[200px] rounded-xl cursor-pointer">
+                    <p class="text-white text-[15px] m-3.5">Briefly summarize this concept: web desiging and its
+                        components
+                    </p>
+                    <div
+                        class=" flex items-center justify-center self-end w-[40px] h-[40px] m-4 bg-[#131314] rounded-full">
+                        <img src="/src/Assets/bulb-light.svg" alt="bulb-light" />
+                    </div>
+                </div>
+                <div
+                    class="flex flex-col items-center justify-between bg-[#1e1f20] hover:bg-[#333537] w-[200px] h-[200px] rounded-xl cursor-pointer">
+                    <p class="text-white text-[15px] m-3.5">Walk me through how to apply for web design role</p>
+                    <div
+                        class=" flex items-center justify-center self-end w-[40px] h-[40px] m-4 bg-[#131314] rounded-full">
+                        <img src="/src/Assets/navigation-light.svg" alt="navigation-light" />
+                    </div>
+                </div>
+                <div
+                    class="flex flex-col items-center justify-between bg-[#1e1f20] hover:bg-[#333537] w-[200px] h-[200px] rounded-xl cursor-pointer">
+                    <p class="text-white text-[15px] m-3.5">Create a 12-week study plan for learning a new language</p>
+                    <div
+                        class=" flex items-center justify-center self-end w-[40px] h-[40px] m-4 bg-[#131314] rounded-full">
+                        <img src="/src/Assets/draw-light.svg" alt="draw-light" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main id="main-content-all" class=" text-[#fff]">
+            <div id="content1" class="content hidden">
+                <div id="about-design" class="w-[800px] h-fit">
+                    <div id="toggle-visible-design" class="w-fit flex items-center justify-center space-x-2 ml-2">
+                        <div class="flex items-center justify-center space-x-4">
+                            <img src="/src/Assets/profile.jpg" alt="profile" class="w-[32px] h-[32px] rounded-full" />
+                            <p class=" text-[16px] text-[#fff] font-normal">About Web Designing</p>
+                        </div>
+                        <div id="design-edit-icon"
+                            class=" relative opacity-0 p-2 hover:bg-[#383a3c] rounded-full transition duration-150 cursor-pointer">
+                            <img src="/src/Assets/edit-light.svg" alt="edit-light" class=" w-[22px] h-[22px]" />
+                            <span id="design-edit-tooltip"
+                                class="absolute opacity-0 bottom-[-28px] left-[-12px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Edit
+                                text</span>
+                        </div>
+                    </div>
+                    <div class=" ml-auto w-fit flex items-center justify-center space-x-2 mt-4">
+                        <div
+                            class=" cursor-pointer flex items-center justify-center space-x-4 hover:bg-[#1b1b1c] px-2 py-[4.5px] rounded-md transition duration-150">
+                            <p class=" text-[15px] text-[#fff] font-light">Show drafts</p>
+                            <img src="/src/Assets/arrow-down-light.svg" alt="down-arrow" class="w-[24px] h-[24px]" />
+                        </div>
+                        <div id="design-volume-icon"
+                            class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                            <img src="/src/Assets/volume-light.svg" alt="volume-light.svg" class="w-[26px] h-[26px]" />
+                            <span id="design-volume-tooltip"
+                                class="absolute opacity-0 bottom-[-28px] left-[-5px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Listen</span>
+                        </div>
+                    </div>
+                    <div class="w-fit mt-4">
+                        <div class="flex items-center justify-center space-x-2">
+                            <img src="/src/Assets/gem.svg" alt="gemini" class="w-[42px] h-[42px]" />
+                            <p class=" text-[16px] text-[#fff] font-medium ">Web Designing: Crafting Digital Experiences
+                            </p>
+                        </div>
+                    </div>
+                    <p class="w-[660px] text-[#fff] ml-[50px] text-wrap leading-7 font-light text-[15px]">
+                        <span class="font-medium text-[#fff]">Web designing</span>
+                        is the art and science of creating visually appealing, user-friendly, and functional websites.
+                        It
+                        involves
+                        planning, conceptualizing, and implementing the design of a website to achieve specific goals.
+                    </p>
+                    <div class="text-[#fff] ml-[50px] text-wrap mt-10">
+                        <span class="font-medium text-[#fff]">Key Components of Web Design:</span>
+                        <ul class="w-[660px] list-disc mt-4 ml-5 leading-7 font-light text-[15px]">
+                            <li>
+                                <span class="font-medium text-[#fff]">Visual Design: </span>This encompasses the
+                                aesthetic
+                                appeal of
+                                a website, including color schemes, typography, imagery, and layout.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">User Interface (UI) Design: </span>Focuses on the
+                                interaction
+                                between users and the website, ensuring a smooth and intuitive experience.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">User Experience (UX) Design: </span>Considers the
+                                overall
+                                experience of users, from navigation to information architecture.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Responsive Design: </span>Creating websites that
+                                adapt
+                                to
+                                different screen sizes (desktop, tablet, mobile).
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Search Engine Optimization (SEO):
+                                </span>Optimizing
+                                website
+                                content and structure for better search engine rankings.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-[#fff] ml-[50px] text-wrap mt-10">
+                        <span class="font-medium text-[#fff]">Tools and Technologies:</span>
+                        <ul class="list-disc mt-4 ml-5 leading-7 font-light text-[15px]">
+                            <li>
+                                <span class="font-medium text-[#fff]">Design Software: </span>Adobe Photoshop,
+                                Illustrator,
+                                Figma,
+                                Sketch
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Prototyping Tools: </span>InVision, Adobe XD,
+                                ProtoPie
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Coding Languages: </span>HTML, CSS, JavaScript
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Content Management Systems (CMS):
+                                </span>WordPress,
+                                Joomla,
+                                Drupal
+                            </li>
+                        </ul>
+                        <div class="flex items-center justify-start space-x-1 mt-10">
+                            <div id="design-like-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/like-light.svg" alt="like-light" class="w-[22px] h-[22px]" />
+                                <span id="design-like-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Good
+                                    response</span>
+                            </div>
+                            <div id="design-dislike-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/dislike-light.svg" alt="dislike-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="design-dislike-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Bad
+                                    response</span>
+                            </div>
+                            <div id="design-modify-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/edit-response-light.svg" alt="edit-response-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="design-modify-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Modify
+                                    response</span>
+                                <span id="design-popup"
+                                    class=" flex flex-col absolute top-[-264px] left-[0px] text-nowrap text-[12px] pt-4 pb-2 bg-[#202124] text-white font-normal rounded-md w-[200px]">
+                                    <p class="text-[12px] text-[#b0b3b2] ml-2 pb-2">Regenerate response</p>
+                                    <div
+                                        class="w-full p-2 space-x-4 flex items-center justify-start hover:bg-[#313235] active:bg-[#3132355e]">
+                                        <img src="/src/Assets/shorttext.svg" alt="short_text"
+                                            class="w-[26px] h-[26px]" />
+                                        <p class="text-[15px] font-normal">Shorter</p>
+                                    </div>
+                                    <div
+                                        class="w-full p-2 space-x-4 flex items-center justify-start hover:bg-[#313235] active:bg-[#3132355e]">
+                                        <img src="/src/Assets/longtext.svg" alt="long_text" class="w-[26px] h-[26px]" />
+                                        <p class="text-[15px] font-normal">Longer</p>
+                                    </div>
+                                    <div
+                                        class="w-full p-2 space-x-4 flex items-center justify-start hover:bg-[#313235] active:bg-[#3132355e]">
+                                        <img src="/src/Assets/download_done.svg" alt="simple_text"
+                                            class="w-[26px] h-[26px]" />
+                                        <p class="text-[15px] font-normal">Simpler</p>
+                                    </div>
+                                    <div
+                                        class="w-full p-2 space-x-4 flex items-center justify-start hover:bg-[#313235] active:bg-[#3132355e]">
+                                        <img src="/src/Assets/beach.svg" alt="causal_text" class="w-[26px] h-[26px]" />
+                                        <p class="text-[15px] font-normal">More casual</p>
+                                    </div>
+                                    <div
+                                        class="w-full p-2 space-x-4 flex items-center justify-start hover:bg-[#313235] active:bg-[#3132355e]">
+                                        <img src="/src/Assets/work.svg" alt="professional_text"
+                                            class="w-[26px] h-[26px]" />
+                                        <p class="text-[15px] font-normal">More professional</p>
+                                    </div>
+                                </span>
+                            </div>
+                            <div id="design-share-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/share-light.svg" alt="share-light" class="w-[22px] h-[22px]" />
+                                <span id="design-share-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Share
+                                    & export</span>
+                                <span id="share-popup"
+                                    class=" flex flex-col absolute top-[-148px] left-[0px] text-nowrap text-[12px] pt-2 pb-2 bg-[#202124] text-white font-normal rounded-md w-[200px]">
+                                    <div
+                                        class="w-full p-2 space-x-4 flex items-center justify-start hover:bg-[#313235] active:bg-[#3132355e] border border-b-1 border-t-0 border-l-0 border-r-0 border-[#3b3c3f]">
+                                        <img src="/src/Assets/forward-light.svg" alt="share"
+                                            class="w-[26px] h-[26px]" />
+                                        <p
+                                            class="text-[15px] sm:text-[18px] md:text-[25px] lg:text-[28px] xl:text-[49px] font-normal">
+                                            Share</p>
+                                    </div>
+                                    <div
+                                        class="w-full p-2 space-x-4 flex items-center justify-start hover:bg-[#313235] active:bg-[#3132355e]">
+                                        <img src="/src/Assets/description-light.svg" alt="export"
+                                            class="w-[26px] h-[26px]" />
+                                        <p class="text-[15px] font-normal">Export to Docs</p>
+                                    </div>
+                                    <div
+                                        class="w-full p-2 space-x-4 flex items-center justify-start hover:bg-[#313235] active:bg-[#3132355e]">
+                                        <img src="/src/Assets/mail-light.png" alt="gmail" class="w-[26px] h-[26px]" />
+                                        <p class="text-[15px] font-normal">Draft in Gmail</p>
+                                    </div>
+                                </span>
+                            </div>
+                            <div id="design-check-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/google-icon.png" alt="google-icon" class="w-[22px] h-[22px]" />
+                                <span id="design-check-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-18px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Google
+                                    it</span>
+                            </div>
+                            <div id="design-more-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/three-dot-light.svg" alt="three-dot-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="design-more-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-5px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">More</span>
+                                <span id="more-popup"
+                                    class=" flex flex-col absolute top-[-106px] left-[0px] text-nowrap text-[12px] pt-2 pb-2 bg-[#202124] text-white font-normal rounded-md w-[200px]">
+                                    <div
+                                        class="w-full p-2 space-x-4 flex items-center justify-start hover:bg-[#313235] active:bg-[#3132355e]">
+                                        <img src="/src/Assets/copy-light.svg" alt="copy_text"
+                                            class="w-[26px] h-[26px]" />
+                                        <p class="text-[15px] font-normal">Copy</p>
+                                    </div>
+                                    <div
+                                        class="w-full p-2 space-x-4 flex items-center justify-start hover:bg-[#313235] active:bg-[#3132355e]">
+                                        <img src="/src/Assets/report-light.svg" alt="report"
+                                            class="w-[26px] h-[26px]" />
+                                        <p class="text-[15px] font-normal">Report legal issue</p>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content2" class="content hidden">
+                <div id="about-js" class="w-[800px] h-fit">
+                    <div id="toggle-visible-js" class="w-fit flex items-center justify-center space-x-2 ml-2">
+                        <div class="flex items-center justify-center space-x-4">
+                            <img src="/src/Assets/profile.jpg" alt="profile" class="w-[32px] h-[32px] rounded-full" />
+                            <p class=" text-[16px] text-[#fff] font-normal">Brief about JavaScript</p>
+                        </div>
+                        <div id="js-edit-icon"
+                            class=" relative opacity-0 p-2 hover:bg-[#383a3c] rounded-full transition duration-150 cursor-pointer">
+                            <img src="/src/Assets/edit-light.svg" alt="edit-light" class="w-[22px] h-[22px]" />
+                            <span id="js-edit-tooltip"
+                                class="absolute opacity-0 bottom-[-28px] left-[-12px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Edit
+                                text</span>
+                        </div>
+                    </div>
+                    <div class=" ml-auto w-fit flex items-center justify-center space-x-2 mt-4">
+                        <div
+                            class=" cursor-pointer flex items-center justify-center space-x-4 hover:bg-[#1b1b1c] px-2 py-[4.5px] rounded-md transition duration-150">
+                            <p class=" text-[15px] text-[#fff] font-light">Show drafts</p>
+                            <img src="/src/Assets/arrow-down-light.svg" alt="down-arrow" class="w-[24px] h-[24px]" />
+                        </div>
+                        <div id="js-volume-icon"
+                            class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                            <img src="/src/Assets/volume-light.svg" alt="volume-light.svg" class="w-[26px] h-[26px]" />
+                            <span id="js-volume-tooltip"
+                                class="absolute opacity-0 bottom-[-28px] left-[-5px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Listen</span>
+                        </div>
+                    </div>
+                    <div class="w-fit mt-4">
+                        <div class="flex items-start justify-start space-x-2">
+                            <img src="/src/Assets/gem.svg" alt="gemini" class="w-[42px] h-[42px]" />
+                            <p class="w-[660px] text-[#fff] ml-[50px] text-wrap leading-7 font-light text-[15px]">
+                                <span class="font-medium text-[#fff]">JavaScript (JS)</span>
+                                is a programming language primarily used to create interactive web pages. It works
+                                alongside HTML and CSS, which structure and style web content, respectively.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="text-[#fff] ml-[50px] text-wrap mt-10">
+                        <span class="font-medium text-[#fff]">Key Points:</span>
+                        <ul class="w-[660px] list-disc mt-4 ml-5 leading-7 font-light text-[15px]">
+                            <li>
+                                <span class="font-medium text-[#fff]">Dynamic content: </span>JS brings web pages to
+                                life by adding features like animations, interactive forms, and dynamic content updates.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Client-side: </span>JS code runs directly in the
+                                web browser, making it fast and responsive.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Versatile: </span> Beyond web pages, JS is used in
+                                various environments like Node.js for server-side development.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Easy to learn: </span>Its syntax is relatively
+                                simple, making it accessible for beginners.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-[#fff] ml-[50px] text-wrap mt-10">
+                        <div class="w-fit mt-4 ml-[-50px]">
+                            <div class="flex items-center justify-center space-x-2 mb-6">
+                                <img src="/src/Assets/gem.svg" alt="gemini" class="w-[42px] h-[42px]" />
+                                <p class=" text-[16px] text-[#fff] font-medium">Basic JavaScript Code Examples
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-y-6">
+                            <p class="font-medium text-[#fff]">1. Variables and Data Types</p>
+                            <div class="">
+                                <div
+                                    class=" text-[15px] text-[#babdbb] font-normal w-[680px] rounded-tr-xl rounded-tl-xl rounded-bl-none rounded-br-none bg-[#1e1f20] px-4 py-4 leading-6">
+                                    <p class="mb-8 text-[16px] font-medium">Code snippet</p>
+                                    <p><span class="text-[#b982ea]">let</span> name = <span
+                                            class="text-[#7bbf8e]">"Dheen"</span>; // String</p>
+                                    <p><span class="text-[#b982ea]">let</span> age = <span
+                                            class="text-[#f48d3d]">23</span>; // Number</p>
+                                    <p><span class="text-[#b982ea]">let</span> developer = true; // Boolean </p>
+                                    <p class="mt-4"><span class="text-[#86aff0]">console</span>.log(name, age,
+                                        developer);</p>
+                                </div>
+                                <div
+                                    class=" flex items-center justify-between text-[13px] w-[680px] mt-1 rounded-tr-none rounded-tl-none rounded-bl-xl rounded-br-xl bg-[#1e1f20] text-[#babdbb] text-normal px-4 py-2">
+                                    <p>
+                                        Use code <span class=" text-[#859cc2] underline cursor-pointer">with
+                                            caution</span>
+                                    </p>
+                                    <div id="js-copy-icon1"
+                                        class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                                        <img src="/src/Assets/copy-light.svg" alt="copy" class="w-[22px] h-[22px]" />
+                                        <span id="js-copy-tooltip1"
+                                            class="absolute opacity-0 bottom-[-34px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Copy
+                                            code</span>
+                                    </div>
+                                </div>
+                                <p class="font-normal text-[15px] text-[#d8d8d8] mt-6">This code declares variables of
+                                    different data types and prints their values.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-y-6 mt-14">
+                            <p class="font-medium text-[#fff]">2. Conditional Statements</p>
+                            <div class="">
+                                <div
+                                    class=" text-[15px] text-[#babdbb] font-normal w-[680px] rounded-tr-xl rounded-tl-xl rounded-bl-none rounded-br-none bg-[#1e1f20] px-4 py-4 leading-6">
+                                    <p class="mb-8 text-[16px] font-medium">JavaScript</p>
+                                    <p><span class="text-[#b982ea]">let</span> temperature <span class="text-[#f48d3d]">
+                                            = 25</span></p>
+                                    <p><span class="text-[#b982ea]">if</span> (temperature > <span
+                                            class="text-[#f48d3d]"> 30</span>) { </p>
+                                    <p class=""><span class="text-[#86aff0]">console</span>.log(<span
+                                            class="text-[#7bbf8e]">"It's hot!"</span>);</p>
+                                    <p>}<span class="text-[#b982ea]"> else if</span> (temperature < <span
+                                            class="text-[#f48d3d]"> 10</span>) {</p>
+                                    <p class=""><span class="text-[#86aff0]">console</span>.log(<span
+                                            class="text-[#7bbf8e]">"It's hot!"</span>);</p>
+                                    <p>}<span class="text-[#b982ea]"> else</span> {
+                                    <p class=""><span class="text-[#86aff0]">console</span>.log(<span
+                                            class="text-[#7bbf8e]">"It's hot!"</span>);</p>}</p>
+                                </div>
+                                <div
+                                    class=" flex items-center justify-between text-[13px] w-[680px] mt-1 rounded-tr-none rounded-tl-none rounded-bl-xl rounded-br-xl bg-[#1e1f20] text-[#babdbb] text-normal px-4 py-2">
+                                    <p>
+                                        Use code <span class=" text-[#859cc2] underline cursor-pointer">with
+                                            caution</span>
+                                    </p>
+                                    <div id="js-copy-icon2"
+                                        class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                                        <img src="/src/Assets/copy-light.svg" alt="copy" class="w-[22px] h-[22px]" />
+                                        <span id="js-copy-tooltip2"
+                                            class="absolute opacity-0 bottom-[-34px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Copy
+                                            code</span>
+                                    </div>
+                                </div>
+                                <p class="font-normal text-[15px] text-[#d8d8d8] mt-6">This code checks the temperature
+                                    and prints a message accordingly.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-y-6 mt-14">
+                            <p class="font-medium text-[#fff]">3. Functions</p>
+                            <div class="">
+                                <div
+                                    class=" text-[15px] text-[#babdbb] font-normal w-[680px] rounded-tr-xl rounded-tl-xl rounded-bl-none rounded-br-none bg-[#1e1f20] px-4 py-4 leading-6">
+                                    <p class="mb-6 text-[16px] font-medium">JavaScript</p>
+                                    <p><span class="text-[#b982ea]">function</span><span class="text-[#fdd663]">
+                                            greetings</span>(name) {</p>
+                                    <p><span class="text-[#86aff0]">console</span>.log(<span
+                                            class="text-[#7bbf8e]">"Hello"</span> + name + <span
+                                            class="text-[#7bbf8e]">"!"</span>);</p>
+                                    </p>
+                                    <p class="mb-4">}</p>
+                                    <p>greetings(<span class="text-[#7bbf8e]">Dheenu</span>);</p>
+                                </div>
+                                <div
+                                    class=" flex items-center justify-between text-[13px] w-[680px] mt-1 rounded-tr-none rounded-tl-none rounded-bl-xl rounded-br-xl bg-[#1e1f20] text-[#babdbb] text-normal px-4 py-2">
+                                    <p>
+                                        Use code <span class=" text-[#859cc2] underline cursor-pointer">with
+                                            caution</span>
+                                    </p>
+                                    <div id="js-copy-icon3"
+                                        class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                                        <img src="/src/Assets/copy-light.svg" alt="copy" class="w-[22px] h-[22px]" />
+                                        <span id="js-copy-tooltip3"
+                                            class="absolute opacity-0 bottom-[-34px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Copy
+                                            code</span>
+                                    </div>
+                                </div>
+                                <p class="w-[660px] font-normal text-[15px] text-[#d8d8d8] mt-6">This code defines a
+                                    function named greet that takes a name as an argument and prints a greeting.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-y-6 mt-14">
+                            <p class="font-medium text-[#fff]">4. Arrays</p>
+                            <div class="">
+                                <div
+                                    class=" text-[15px] text-[#babdbb] font-normal w-[680px] rounded-tr-xl rounded-tl-xl rounded-bl-none rounded-br-none bg-[#1e1f20] px-4 py-4 leading-6">
+                                    <p class="mb-6 text-[16px] font-medium">JavaScript</p>
+                                    <p><span class="text-[#b982ea]">let</span> fruits = [<span
+                                            class="text-[#7bbf8e]">"apple", "orange", "banana"</span>];</p>
+                                    <p><span class="text-[#86aff0]">console</span>.log(fruits[<span
+                                            class="text-[#f48d3d]">1</span>]);<span class=" ml-2 text-[#757a7f]">//
+                                            Accessing the second element</p>
+                                </div>
+                                <div
+                                    class=" flex items-center justify-between text-[13px] w-[680px] mt-1 rounded-tr-none rounded-tl-none rounded-bl-xl rounded-br-xl bg-[#1e1f20] text-[#babdbb] text-normal px-4 py-2">
+                                    <p>
+                                        Use code <span class=" text-[#859cc2] underline cursor-pointer">with
+                                            caution</span>
+                                    </p>
+                                    <div id="js-copy-icon4"
+                                        class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                                        <img src="/src/Assets/copy-light.svg" alt="copy" class="w-[22px] h-[22px]" />
+                                        <span id="js-copy-tooltip4"
+                                            class="absolute opacity-0 bottom-[-34px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Copy
+                                            code</span>
+                                    </div>
+                                </div>
+                                <p class="font-normal text-[15px] text-[#d8d8d8] mt-6">This code creates an array of
+                                    fruits and accesses one of its elements.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-y-6 mt-14">
+                            <p class="font-medium text-[#fff]">5. Loops</p>
+                            <div class="">
+                                <div
+                                    class=" text-[15px] text-[#babdbb] font-normal w-[680px] rounded-tr-xl rounded-tl-xl rounded-bl-none rounded-br-none bg-[#1e1f20] px-4 py-4 leading-6">
+                                    <p class="mb-6 text-[16px] font-medium">JavaScript</p>
+                                    <p><span class="text-[#b982ea]">for</span>(<span class="text-[#b982ea]">let</span> i
+                                        = <span class="text-[#f48d3d]">0</span>; i < <span class="text-[#f48d3d]">
+                                            5</span>; i++) {</p>
+                                    <p><span class="text-[#86aff0]">console</span>.log(i)</p>
+                                    <p>}</p>
+                                </div>
+                                <div
+                                    class=" flex items-center justify-between text-[13px] w-[680px] mt-1 rounded-tr-none rounded-tl-none rounded-bl-xl rounded-br-xl bg-[#1e1f20] text-[#babdbb] text-normal px-4 py-2">
+                                    <p>
+                                        Use code <span class=" text-[#859cc2] underline cursor-pointer">with
+                                            caution</span>
+                                    </p>
+                                    <div id="js-copy-icon5"
+                                        class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                                        <img src="/src/Assets/copy-light.svg" alt="copy" class="w-[22px] h-[22px]" />
+                                        <span id="js-copy-tooltip5"
+                                            class="absolute opacity-0 bottom-[-34px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Copy
+                                            code</span>
+                                    </div>
+                                </div>
+                                <p class="font-normal text-[15px] text-[#d8d8d8] mt-6">This code uses a for loop to
+                                    print numbers from 0 to 4.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-start space-x-1 mt-10">
+                            <div id="js-like-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/like-light.svg" alt="like-light" class="w-[22px] h-[22px]" />
+                                <span id="js-like-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Good
+                                    response</span>
+                            </div>
+                            <div id="js-dislike-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/dislike-light.svg" alt="dislike-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="js-dislike-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Bad
+                                    response</span>
+                            </div>
+                            <div id="js-modify-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/edit-response-light.svg" alt="edit-response-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="js-modify-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Modify
+                                    response</span>
+                            </div>
+                            <div id="js-share-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/share-light.svg" alt="share-light" class="w-[22px] h-[22px]" />
+                                <span id="js-share-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Share
+                                    & export</span>
+                            </div>
+                            <div id="js-check-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/google-icon.png" alt="google-icon" class="w-[22px] h-[22px]" />
+                                <span id="js-check-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-18px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Google
+                                    it</span>
+                            </div>
+                            <div id="js-more-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/three-dot-light.svg" alt="three-dot-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="js-more-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-5px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">More</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content3" class="content hidden">
+                <div id="about-tailwind" class="w-[800px] h-fit">
+                    <div id="toggle-visible-tailwind" class="w-fit flex items-center justify-center space-x-2 ml-2">
+                        <div class="flex items-center justify-center space-x-4">
+                            <img src="/src/Assets/profile.jpg" alt="profile" class="w-[32px] h-[32px] rounded-full" />
+                            <p class=" text-[16px] text-[#fff] font-normal">Brief about Tailwind CSS</p>
+                        </div>
+                        <div id="tailwind-edit-icon"
+                            class=" relative opacity-0 p-2 hover:bg-[#383a3c] rounded-full transition duration-150 cursor-pointer">
+                            <img src="/src/Assets/edit-light.svg" alt="edit-light" class="w-[22px] h-[22px]" />
+                            <span id="tailwind-edit-tooltip"
+                                class="absolute opacity-0 bottom-[-28px] left-[-12px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Edit
+                                text</span>
+                        </div>
+                    </div>
+                    <div class=" ml-auto w-fit flex items-center justify-center space-x-2 mt-4">
+                        <div
+                            class=" cursor-pointer flex items-center justify-center space-x-4 hover:bg-[#1b1b1c] px-2 py-[4.5px] rounded-md transition duration-150">
+                            <p class=" text-[15px] text-[#fff] font-light">Show drafts</p>
+                            <img src="/src/Assets/arrow-down-light.svg" alt="down-arrow" class="w-[24px] h-[24px]" />
+                        </div>
+                        <div id="tailwind-volume-icon"
+                            class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                            <img src="/src/Assets/volume-light.svg" alt="volume-light.svg" class="w-[26px] h-[26px]" />
+                            <span id="tailwind-volume-tooltip"
+                                class="absolute opacity-0 bottom-[-28px] left-[-5px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Listen</span>
+                        </div>
+                    </div>
+                    <div class="w-fit mt-4">
+                        <div class="flex items-center justify-center space-x-2">
+                            <img src="/src/Assets/gem.svg" alt="gemini" class="w-[42px] h-[42px]" />
+                            <p class="text-[#fff] ml-[50px] text-wrap leading-7 font-light text-[15px]">
+                                <span class="font-medium text-[#fff]">Tailwind CSS</span>
+                                is a utility-first CSS framework that speeds up web development.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="text-[#fff] ml-[50px] text-wrap mt-6">
+                        <span class="font-medium text-[#fff]">Key features:</span>
+                        <ul class=" w-[660px] list-disc mt-4 ml-5 leading-7 font-light text-[15px]">
+                            <li>
+                                <span class="font-medium text-[#fff]">Utility-first approach: </span> Instead of
+                                pre-defined classes for elements like buttons or tables, Tailwind provides a set of
+                                low-level utility classes for styling individual elements directly in your HTML.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Rapid development: </span>Quickly build custom
+                                user interfaces without writing extensive CSS code.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Consistency: </span> Promotes consistent styling
+                                across your project by providing a predefined set of classes.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Responsiveness: </span>Easily create responsive
+                                designs using Tailwind's built-in responsive modifiers.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-[#fff] ml-[50px] text-wrap mt-10">
+                        <div class="w-fit mt-4 ml-[0px]">
+                            <div class="mb-6">
+                                <p class=" text-[16px] text-[#fff] font-medium">Basic Code Example
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-y-6">
+                            <div class="">
+                                <div
+                                    class=" text-[15px] text-[#babdbb] font-normal w-[680px] rounded-tr-xl rounded-tl-xl rounded-bl-none rounded-br-none bg-[#1e1f20] px-4 py-4 leading-6 text-wrap">
+                                    <p class="mb-8 text-[16px] font-medium">HTML</p>
+                                    <p>
+                                        <<span class="text-[#e3837b]">button </span><span
+                                                class="text-[#f48d3d]">class</span> = <span
+                                                class="text-[#80c894]">"bg-blue-500 hover:bg-blue-700 text-white
+                                                font-bold py-2 px-4 rounded"</span>><<span class="text-[#e3837b]">
+                                                button</span>/>
+                                    </p>
+
+                                </div>
+                                <div
+                                    class=" flex items-center justify-between text-[13px] w-[680px] mt-1 rounded-tr-none rounded-tl-none rounded-bl-xl rounded-br-xl bg-[#1e1f20] text-[#babdbb] text-normal px-4 py-2">
+                                    <p>
+                                        Use code <span class=" text-[#859cc2] underline cursor-pointer">with
+                                            caution</span>
+                                    </p>
+                                    <div id="tailwind-copy-icon"
+                                        class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                                        <img src="/src/Assets/copy-light.svg" alt="copy" class="w-[22px] h-[22px]" />
+                                        <span id="tailwind-copy-tooltip"
+                                            class="absolute opacity-0 bottom-[-34px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Copy
+                                            code</span>
+                                    </div>
+                                </div>
+                                <p class=" w-[660px] font-normal text-[15px] text-[#d8d8d8] mt-6">In this example, the
+                                    button's appearance is defined entirely through Tailwind utility classes, without
+                                    the need for custom CSS.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-start space-x-1 mt-10">
+                            <div id="tailwind-like-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/like-light.svg" alt="like-light" class="w-[22px] h-[22px]" />
+                                <span id="tailwind-like-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Good
+                                    response</span>
+                            </div>
+                            <div id="tailwind-dislike-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/dislike-light.svg" alt="dislike-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="tailwind-dislike-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Bad
+                                    response</span>
+                            </div>
+                            <div id="tailwind-modify-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/edit-response-light.svg" alt="edit-response-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="tailwind-modify-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Modify
+                                    response</span>
+                            </div>
+                            <div id="tailwind-share-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/share-light.svg" alt="share-light" class="w-[22px] h-[22px]" />
+                                <span id="tailwind-share-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Share
+                                    & export</span>
+                            </div>
+                            <div id="tailwind-check-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/google-icon.png" alt="google-icon" class="w-[22px] h-[22px]" />
+                                <span id="tailwind-check-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-18px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Google
+                                    it</span>
+                            </div>
+                            <div id="tailwind-more-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/three-dot-light.svg" alt="three-dot-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="tailwind-more-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-5px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">More</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content4" class="content hidden">
+                <div id="about-css" class="w-[800px] h-fit">
+                    <div id="toggle-visible-css" class="w-fit flex items-center justify-center space-x-2 ml-2">
+                        <div class="flex items-center justify-center space-x-4">
+                            <img src="/src/Assets/profile.jpg" alt="profile" class="w-[32px] h-[32px] rounded-full" />
+                            <p class=" text-[16px] text-[#fff] font-normal">Brief about CSS</p>
+                        </div>
+                        <div id="css-edit-icon"
+                            class=" relative opacity-0 p-2 hover:bg-[#383a3c] rounded-full transition duration-150 cursor-pointer">
+                            <img src="/src/Assets/edit-light.svg" alt="edit-light" class="w-[22px] h-[22px]" />
+                            <span id="css-edit-tooltip"
+                                class="absolute opacity-0 bottom-[-28px] left-[-12px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Edit
+                                text</span>
+                        </div>
+                    </div>
+                    <div class=" ml-auto w-fit flex items-center justify-center space-x-2 mt-4">
+                        <div
+                            class=" cursor-pointer flex items-center justify-center space-x-4 hover:bg-[#1b1b1c] px-2 py-[4.5px] rounded-md transition duration-150">
+                            <p class=" text-[15px] text-[#fff] font-light">Show drafts</p>
+                            <img src="/src/Assets/arrow-down-light.svg" alt="down-arrow" class="w-[24px] h-[24px]" />
+                        </div>
+                        <div id="css-volume-icon"
+                            class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                            <img src="/src/Assets/volume-light.svg" alt="volume-light.svg" class="w-[26px] h-[26px]" />
+                            <span id="css-volume-tooltip"
+                                class="absolute opacity-0 bottom-[-28px] left-[-5px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Listen</span>
+                        </div>
+                    </div>
+                    <div class="w-fit mt-4">
+                        <div class="flex items-center justify-center space-x-2">
+                            <img src="/src/Assets/gem.svg" alt="gemini" class="w-[42px] h-[42px]" />
+                            <p class="text-[#fff] ml-[50px] text-wrap leading-7 font-light text-[15px]">
+                                <span class="font-medium text-[#fff]">CSS: The Style Sheet Language</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start justify-start space-x-2">
+                        <p class="w-[660px] text-[#fff] ml-[50px] text-wrap leading-7 font-light text-[15px]">
+                            <span class="font-medium text-[#fff]">CSS</span>
+                            stands for <span class="font-medium text-[#fff]">Cascading Style Sheets.</span> It's a
+                            language used to describe the presentation of a document written in HTML or XML. In simpler
+                            terms, it's the makeup artist of the web, determining how elements on a webpage look.
+                        </p>
+                    </div>
+
+                    <div class="text-[#fff] ml-[50px] text-wrap mt-6">
+                        <span class="font-medium text-[#fff]">What does CSS do?:</span>
+                        <ul class=" w-[660px] list-disc mt-4 ml-5 leading-7 font-light text-[15px]">
+                            <li>
+                                <span class="font-medium text-[#fff]">Controls appearance: </span>CSS dictates colors,
+                                fonts, spacing, and layout of elements.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Improves efficiency: </span>By separating styles
+                                from HTML, it makes website maintenance easier.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Enhances accessibility: </span>CSS can help make
+                                websites accessible to people with disabilities.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Creates responsive designs: </span>It allows
+                                websites to adapt to different screen sizes (desktop, tablet, mobile).
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-[#fff] ml-[50px] text-wrap mt-10">
+                        <div class="w-fit mt-4 ml-[0px]">
+                            <div class="mb-6">
+                                <p class="mb-4 text-[16px] text-[#fff] font-medium">Basic structure of CSS
+                                </p>
+                                <p class=" text-[16px] text-[#fff] font-normal">A CSS rule consists of two main parts:
+                                </p>
+                                <ul class="list-disc mt-4 ml-5 leading-7 font-light text-[15px]">
+                                    <li>
+                                        <span class="font-medium text-[#fff]">Selector: </span>Specifies the HTML
+                                        element(s) to be styled.
+                                    </li>
+                                    <li>
+                                        <span class="font-medium text-[#fff]">Declaration: </span>Contains one or more
+                                        properties and their values.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-y-6">
+                            <div class="">
+                                <div
+                                    class=" text-[15px] text-[#babdbb] font-normal w-[680px] rounded-tr-xl rounded-tl-xl rounded-bl-none rounded-br-none bg-[#1e1f20] px-4 py-4 leading-6 text-wrap">
+                                    <p class="mb-8 text-[16px] font-medium">CSS</p>
+                                    <p><span class="text-[#f48d3d]">selector </span>{
+                                    <p>property: value;</p>
+                                    <p>}
+                                </div>
+                                <div
+                                    class=" flex items-center justify-between text-[13px] w-[680px] mt-1 rounded-tr-none rounded-tl-none rounded-bl-xl rounded-br-xl bg-[#1e1f20] text-[#babdbb] text-normal px-4 py-2">
+                                    <p>
+                                        Use code <span class=" text-[#859cc2] underline cursor-pointer">with
+                                            caution</span>
+                                    </p>
+                                    <div id="css-copy-icon1"
+                                        class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                                        <img src="/src/Assets/copy-light.svg" alt="copy" class="w-[22px] h-[22px]" />
+                                        <span id="css-copy-tooltip1"
+                                            class="absolute opacity-0 bottom-[-34px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Copy
+                                            code</span>
+                                    </div>
+                                </div>
+                                <p class=" text-[16px] text-[#fff] font-medium mt-4 mb-4">Example:
+                                </p>
+                                <div
+                                    class=" text-[15px] text-[#babdbb] font-normal w-[680px] rounded-tr-xl rounded-tl-xl rounded-bl-none rounded-br-none bg-[#1e1f20] px-4 py-4 leading-6 text-wrap">
+                                    <p class="mb-8 text-[16px] font-medium">CSS</p>
+                                    <p><span class="text-[#f48d3d]">p </span>{
+                                    <p>color: teal;</p>
+                                    <p>font-size: <span class="text-[#f48d3d]">16px</span>;</p>
+                                    <p>}
+                                </div>
+                                <div
+                                    class=" flex items-center justify-between text-[13px] w-[680px] mt-1 rounded-tr-none rounded-tl-none rounded-bl-xl rounded-br-xl bg-[#1e1f20] text-[#babdbb] text-normal px-4 py-2">
+                                    <p>
+                                        Use code <span class=" text-[#859cc2] underline cursor-pointer">with
+                                            caution</span>
+                                    </p>
+                                    <div id="css-copy-icon2"
+                                        class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                                        <img src="/src/Assets/copy-light.svg" alt="copy" class="w-[22px] h-[22px]" />
+                                        <span id="css-copy-tooltip2"
+                                            class="absolute opacity-0 bottom-[-34px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Copy
+                                            code</span>
+                                    </div>
+                                </div>
+
+
+                                <p class=" w-[660px] font-normal text-[15px] text-[#d8d8d8] mt-6">This rule will make
+                                    all paragraph elements on the page blue and with a font size of 16 pixels.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-start space-x-1 mt-10">
+                            <div id="css-like-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/like-light.svg" alt="like-light" class="w-[22px] h-[22px]" />
+                                <span id="css-like-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Good
+                                    response</span>
+                            </div>
+                            <div id="css-dislike-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/dislike-light.svg" alt="dislike-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="css-dislike-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Bad
+                                    response</span>
+                            </div>
+                            <div id="css-modify-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/edit-response-light.svg" alt="edit-response-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="css-modify-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Modify
+                                    response</span>
+                            </div>
+                            <div id="css-share-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/share-light.svg" alt="share-light" class="w-[22px] h-[22px]" />
+                                <span id="css-share-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Share
+                                    & export</span>
+                            </div>
+                            <div id="css-check-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/google-icon.png" alt="google-icon" class="w-[22px] h-[22px]" />
+                                <span id="css-check-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-18px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Google
+                                    it</span>
+                            </div>
+                            <div id="css-more-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/three-dot-light.svg" alt="three-dot-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="css-more-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-5px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">More</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content5" class="content hidden">
+                <div id="about-html" class="w-[800px] h-fit">
+                    <div id="toggle-visible-html" class="w-fit flex items-center justify-center space-x-2 ml-2">
+                        <div class="flex items-center justify-center space-x-4">
+                            <img src="/src/Assets/profile.jpg" alt="profile" class="w-[32px] h-[32px] rounded-full" />
+                            <p class=" text-[16px] text-[#fff] font-normal">Brief about HTML</p>
+                        </div>
+                        <div id="html-edit-icon"
+                            class=" relative opacity-0 p-2 hover:bg-[#383a3c] rounded-full transition duration-150 cursor-pointer">
+                            <img src="/src/Assets/edit-light.svg" alt="edit-light" class="w-[22px] h-[22px]" />
+                            <span id="html-edit-tooltip"
+                                class="absolute opacity-0 bottom-[-28px] left-[-12px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Edit
+                                text</span>
+                        </div>
+                    </div>
+                    <div class=" ml-auto w-fit flex items-center justify-center space-x-2 mt-4">
+                        <div
+                            class=" cursor-pointer flex items-center justify-center space-x-4 hover:bg-[#1b1b1c] px-2 py-[4.5px] rounded-md transition duration-150">
+                            <p class=" text-[15px] text-[#fff] font-light">Show drafts</p>
+                            <img src="/src/Assets/arrow-down-light.svg" alt="down-arrow" class="w-[24px] h-[24px]" />
+                        </div>
+                        <div id="html-volume-icon"
+                            class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                            <img src="/src/Assets/volume-light.svg" alt="volume-light.svg" class="w-[26px] h-[26px]" />
+                            <span id="html-volume-tooltip"
+                                class="absolute opacity-0 bottom-[-28px] left-[-5px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Listen</span>
+                        </div>
+                    </div>
+                    <div class="w-fit mt-4">
+                        <div class="flex items-center justify-center space-x-2">
+                            <img src="/src/Assets/gem.svg" alt="gemini" class="w-[42px] h-[42px]" />
+                            <p class="text-[#fff] ml-[50px] text-wrap leading-7 font-light text-[15px]">
+                                <span class="font-medium text-[#fff]">HTML: HyperText Markup Language</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start justify-start space-x-2">
+                        <p class="w-[660px] text-[#fff] ml-[50px] text-wrap leading-7 font-light text-[15px]">
+                            <span class="font-medium text-[#fff]">HTML</span>
+                            stands for <span class="font-medium text-[#fff]">HyperText Markup Language.</span> It's the
+                            standard language used to create and structure web pages. Think of it as the skeleton of a
+                            website.
+                        </p>
+                    </div>
+
+                    <div class="text-[#fff] ml-[50px] text-wrap mt-6">
+                        <span class="font-medium text-[#fff]">How it works:</span>
+                        <ul class=" w-[660px] list-disc mt-4 ml-5 leading-7 font-light text-[15px]">
+                            <li>
+                                <span class="font-medium text-[#fff]">Elements: </span>HTML is made up of elements,
+                                which are defined by tags. These tags tell the browser how to display the content.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Structure: </span>HTML defines the structure of a
+                                webpage, determining the order and hierarchy of content.
+                            </li>
+                            <li>
+                                <span class="font-medium text-[#fff]">Content: </span>You place the actual content
+                                (text, images, links, etc.) within these elements.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-[#fff] ml-[50px] text-wrap mt-10">
+                        <div class="w-fit mt-4 ml-[0px]">
+                            <div class="mb-6">
+                                <p class="mb-4 text-[16px] text-[#fff] font-medium">Basic Example:
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-y-6">
+                            <div class="">
+                                <div
+                                    class=" text-[15px] text-[#babdbb] font-normal w-[680px] rounded-tr-xl rounded-tl-xl rounded-bl-none rounded-br-none bg-[#1e1f20] px-4 py-4 leading-6 text-wrap">
+                                    <p class="mb-8 text-[16px] font-medium">HTML</p>
+                                    <p>
+                                        <<span class="text-[#8ab4f8]">!Doctype html</span>>
+                                    </p>
+                                    <p>
+                                        <<span class="text-[#f48d3d]">html</span>>
+                                    </p>
+                                    <p>
+                                        <<span class="text-[#f48d3d]">head</span>>
+                                    </p>
+                                    <p>
+                                        <<span class="text-[#f48d3d]">title</span>>
+                                    </p>
+                                    <p>
+                                        <<span class="text-[#f48d3d]">head</span>/>
+                                    </p>
+                                    <p>
+                                        <<span class="text-[#f48d3d]">body</span>>
+                                    </p>
+                                    <p>
+                                        <<span class="text-[#f48d3d]">h1</span>>Hello Dheenu!<<span
+                                                class="text-[#f48d3d]">h1</span>/>
+                                    </p>
+                                    <p>
+                                        <<span class="text-[#f48d3d]">p</span>>This is my first paragraph.</<span
+                                            class="text-[#f48d3d]">p</span>>
+                                    </p>
+                                    <p>
+                                        <<span class="text-[#f48d3d]">body</span>/>
+                                    </p>
+                                    <p>
+                                        < <span class="text-[#f48d3d]">html</span>
+                                            />
+                                    </p>
+                                </div>
+                                <div
+                                    class=" flex items-center justify-between text-[13px] w-[680px] mt-1 rounded-tr-none rounded-tl-none rounded-bl-xl rounded-br-xl bg-[#1e1f20] text-[#babdbb] text-normal px-4 py-2">
+                                    <p>
+                                        Use code <span class=" text-[#859cc2] underline cursor-pointer">with
+                                            caution</span>
+                                    </p>
+                                    <div id="html-copy-icon"
+                                        class=" relative cursor-pointer p-2 hover:bg-[#383a3c] rounded-full transition duration-150">
+                                        <img src="/src/Assets/copy-light.svg" alt="copy" class="w-[22px] h-[22px]" />
+                                        <span id="html-copy-tooltip"
+                                            class="absolute opacity-0 bottom-[-34px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Copy
+                                            code</span>
+                                    </div>
+                                </div>
+                                <div class="text-[#fff] ml-[0px] text-wrap mt-6">
+                                    <span class="font-medium text-[#fff]">Key points:</span>
+                                    <ul class=" w-[660px] list-disc mt-4 ml-5 leading-7 font-light text-[15px]">
+                                        <li>
+                                            HTML is easy to learn and understand.
+                                        </li>
+                                        <li>
+                                            It works with other technologies like CSS for styling and JavaScript for
+                                            interactivity.
+                                        </li>
+                                        <li>
+                                            It's the foundation for creating any website.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class=" w-[660px] font-normal text-[15px] text-[#d8d8d8] mt-6">In essence, HTML
+                                    provides the blueprint for a webpage, defining its content and structure. It's the
+                                    first step in building engaging and informative websites.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-start space-x-1 mt-10">
+                            <div id="html-like-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/like-light.svg" alt="like-light" class="w-[22px] h-[22px]" />
+                                <span id="html-like-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Good
+                                    response</span>
+                            </div>
+                            <div id="html-dislike-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/dislike-light.svg" alt="dislike-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="html-dislike-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Bad
+                                    response</span>
+                            </div>
+                            <div id="html-modify-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/edit-response-light.svg" alt="edit-response-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="html-modify-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Modify
+                                    response</span>
+                            </div>
+                            <div id="html-share-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/share-light.svg" alt="share-light" class="w-[22px] h-[22px]" />
+                                <span id="html-share-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Share
+                                    & export</span>
+                            </div>
+                            <div id="html-check-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/google-icon.png" alt="google-icon" class="w-[22px] h-[22px]" />
+                                <span id="html-check-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-18px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Google
+                                    it</span>
+                            </div>
+                            <div id="html-more-icon"
+                                class=" relative p-2 cursor-pointer hover:bg-[#383a3c] rounded-full transition duration-15">
+                                <img src="/src/Assets/three-dot-light.svg" alt="three-dot-light"
+                                    class="w-[22px] h-[22px]" />
+                                <span id="html-more-tooltip"
+                                    class="absolute opacity-0 bottom-[-38px] left-[-5px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">More</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </main>
+
+    <div class=" user-name sticky absolute bottom-0 mt-[90px] flex items-center justify-center w-full ">
+        <div id="prompt" class="relative w-[830px] bg-[#131314]">
+            <input id="input-box" type="text" title="textbox"
+                class="bg-[#1e1f20] border-none outline-none flex items-center justify-center pl-6 py-[20px] px-2 w-full rounded-full text-[#c4c7c5] text-[15px]"
+                placeholder="Enter a prompt here">
+            <div id="mic-icon"
+                class="absolute right-5 top-2.5 flex items-center justify-center hover:bg-[#2f3030] w-[46px] h-[46px] rounded-full cursor-pointer transition-transform">
+                <img src="/src/Assets/mic-light.svg" alt="mic-light" class="w-[24px] h-[24px]" />
+                <span id="mic-tooltip"
+                    class="absolute bottom-[-28px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Use
+                    Microphone</span>
+            </div>
+            <div id="photo-icon"
+                class="absolute right-16 top-2.5 flex items-center justify-center hover:bg-[#2f3030] w-[46px] h-[46px] rounded-full cursor-pointer transition-transform">
+                <img src="/src/Assets/add-photo-light.svg" alt="add-photo-light" class="w-[24px] h-[24px]" />
+                <span id="photo-tooltip"
+                    class="absolute bottom-[-28px] left-[-28px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Upload
+                    Image</span>
+            </div>
+            <div id="send-icon"
+                class="absolute right-[10px] top-[9px] flex items-center justify-center opacity-0 invisible hover:bg-[#2f3030] w-[46px] h-[46px] rounded-full cursor-pointer transition-all">
+                <img src="/src/Assets/send-light.svg" alt="send-light" class="w-[24px] h-[24px]" />
+                <span id="send-tooltip"
+                    class="absolute bottom-[-28px] left-[-6px] text-nowrap text-[12px] px-2 py-[2px] bg-[#3c4043] text-white font-normal rounded-md">Submit</span>
+            </div>
+            <h2 class="text-center text-[#c4c7c5] text-[11px] mt-3 pb-4">Gemini may display inaccurate info, including
+                about
+                people, so double-check its responses. <span class="underline">Your privacy & Gemini Apps</span></h2>
+        </div>
+
+
+    </div>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

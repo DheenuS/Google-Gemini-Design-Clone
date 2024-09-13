@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* Scroll bar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 20px;
+    background-color: #131314;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #444746;
+    border-radius: 30px;
+}
+
+/* Scroll behaviour */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "poppins", system-ui, sans-serif;
+    font-size: 16px;
+    color: #222;
+    background-color: #131314;
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #5E7FE7 4%, #A870B9 20%, #CC6783 28%, #d96570 68%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.sidebar-text {
+    opacity: 1;
+}
+
+#html:hover>#html-pin,
+#css:hover>#css-pin,
+#tailwind:hover>#tailwind-pin,
+#js:hover>#js-pin,
+#design:hover>#design-pin {
+    display: none;
+}
+
+#html:hover>#html-three-dot,
+#css:hover>#css-three-dot,
+#tailwind:hover>#tailwind-three-dot,
+#js:hover>#js-three-dot,
+#design:hover>#design-three-dot {
+    display: block;
+}
+
+.visible {
+    opacity: 1;
+}
+
+#side-bar {
+    transition: 0.3s ease-in-out;
+}
+
+/* Active state style for the list item */
+.active,
+.active:hover {
+    background-color: #004a77;
+}
+
+/* Hide content by default */
+.content {
+    display: none;
+}
+
+/* Show content when active */
+.content.active {
+    display: block;
+    background-color: #131314;
+}
+
+.main-title {
+    display: none;
+}
+
+#toggle-visible-html:hover>#html-edit-icon,
+#toggle-visible-css:hover>#css-edit-icon,
+#toggle-visible-tailwind:hover>#tailwind-edit-icon,
+#toggle-visible-js:hover>#js-edit-icon,
+#toggle-visible-design:hover>#design-edit-icon {
+    opacity: 1;
+}
+
+#ham-tooltip,
+#chat-tooltip,
+#photo-tooltip,
+#mic-tooltip,
+#send-tooltip,
+#google-app-tooltip,
+#profile-tooltip,
+
+#js-edit-tooltip,
+#js-volume-tooltip,
+#js-like-tooltip,
+#js-dislike-tooltip,
+#js-modify-tooltip,
+#js-share-tooltip,
+#js-more-tooltip,
+#js-copy-tooltip1,
+#js-copy-tooltip2,
+#js-copy-tooltip3,
+#js-copy-tooltip4,
+#js-copy-tooltip5,
+
+#tailwind-edit-tooltip,
+#tailwind-volume-tooltip,
+#tailwind-like-tooltip,
+#tailwind-dislike-tooltip,
+#tailwind-modify-tooltip,
+#tailwind-share-tooltip,
+#tailwind-check-tooltip,
+#tailwind-more-tooltip,
+#tailwind-copy-tooltip,
+
+#css-edit-tooltip,
+#css-volume-tooltip,
+#css-like-tooltip,
+#css-dislike-tooltip,
+#css-modify-tooltip,
+#css-share-tooltip,
+#css-check-tooltip,
+#css-more-tooltip,
+#css-copy-tooltip1,
+#css-copy-tooltip2,
+
+#html-edit-tooltip,
+#html-volume-tooltip,
+#html-like-tooltip,
+#html-dislike-tooltip,
+#html-modify-tooltip,
+#html-share-tooltip,
+#html-check-tooltip,
+#html-more-tooltip,
+#html-copy-tooltip, 
+
+#sb-design-tooltip,
+#sb-html-tooltip,
+#sb-css-tooltip,
+#sb-tailwind-tooltip,
+#sb-js-tooltip,
+
+#sb-help-tooltip,
+#sb-activity-tooltip,
+#sb-settings-tooltip
+
+{
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#hamburger:hover #ham-tooltip,
+#new-chat-button:hover #chat-tooltip,
+#photo-icon:hover #photo-tooltip,
+#mic-icon:hover #mic-tooltip,
+#send-icon:hover #send-tooltip,
+#google-app-icon:hover #google-app-tooltip,
+#profile-icon:hover #profile-tooltip,
+
+#html-edit-icon:hover #html-edit-tooltip,
+#css-edit-icon:hover #css-edit-tooltip,
+#tailwind-edit-icon:hover #tailwind-edit-tooltip,
+#js-edit-icon:hover #js-edit-tooltip,
+#design-edit-icon:hover #design-edit-tooltip,
+
+#html-volume-icon:hover #html-volume-tooltip,
+#css-volume-icon:hover #css-volume-tooltip,
+#tailwind-volume-icon:hover #tailwind-volume-tooltip,
+#js-volume-icon:hover #js-volume-tooltip,
+#design-volume-icon:hover #design-volume-tooltip,
+
+#html-like-icon:hover #html-like-tooltip,
+#css-like-icon:hover #css-like-tooltip,
+#tailwind-like-icon:hover #tailwind-like-tooltip,
+#js-like-icon:hover #js-like-tooltip,
+#design-like-icon:hover #design-like-tooltip,
+
+#html-dislike-icon:hover #html-dislike-tooltip,
+#css-dislike-icon:hover #css-dislike-tooltip,
+#tailwind-dislike-icon:hover #tailwind-dislike-tooltip,
+#js-dislike-icon:hover #js-dislike-tooltip,
+#design-dislike-icon:hover #design-dislike-tooltip,
+
+#html-modify-icon:hover #html-modify-tooltip,
+#css-modify-icon:hover #css-modify-tooltip,
+#tailwind-modify-icon:hover #tailwind-modify-tooltip,
+#js-modify-icon:hover #js-modify-tooltip,
+#design-modify-icon:hover #design-modify-tooltip,
+
+#html-share-icon:hover #html-share-tooltip,
+#css-share-icon:hover #css-share-tooltip,
+#tailwind-share-icon:hover #tailwind-share-tooltip,
+#js-share-icon:hover #js-share-tooltip,
+#design-share-icon:hover #design-share-tooltip,
+
+#html-check-icon:hover #html-check-tooltip,
+#css-check-icon:hover #css-check-tooltip,
+#tailwind-check-icon:hover #tailwind-check-tooltip,
+#js-check-icon:hover #js-check-tooltip,
+#design-check-icon:hover #design-check-tooltip,
+
+#html-more-icon:hover #html-more-tooltip,
+#css-more-icon:hover #css-more-tooltip,
+#tailwind-more-icon:hover #tailwind-more-tooltip,
+#js-more-icon:hover #js-more-tooltip,
+#design-more-icon:hover #design-more-tooltip,
+
+#html-copy-icon:hover #html-copy-tooltip,
+#css-copy-icon1:hover #css-copy-tooltip1,
+#css-copy-icon2:hover #css-copy-tooltip2,
+#tailwind-copy-icon:hover #tailwind-copy-tooltip,
+#js-copy-icon1:hover #js-copy-tooltip1,
+#js-copy-icon2:hover #js-copy-tooltip2,
+#js-copy-icon3:hover #js-copy-tooltip3,
+#js-copy-icon4:hover #js-copy-tooltip4,
+#js-copy-icon5:hover #js-copy-tooltip5,
+#design-copy-icon:hover #design-copy-tooltip,
+
+.sb-design-li:hover #sb-design-tooltip,
+.sb-html-li:hover #sb-html-tooltip,
+.sb-css-li:hover #sb-css-tooltip,
+.sb-tailwind-li:hover #sb-tailwind-tooltip,
+.sb-js-li:hover #sb-js-tooltip,
+
+.sb-help-li:hover #sb-help-tooltip,
+.sb-activity-li:hover #sb-activity-tooltip,
+.sb-settings-li:hover #sb-settings-tooltip
+
+{
+    opacity: 1;
+}
+
+.user-name {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+}
+
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.designModifyIcon:hover {
+    background-color: #383a3c;
+}
